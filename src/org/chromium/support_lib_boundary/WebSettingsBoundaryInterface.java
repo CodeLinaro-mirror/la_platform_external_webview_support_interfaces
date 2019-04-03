@@ -20,7 +20,4 @@ public interface WebSettingsBoundaryInterface {
 
     void setDisabledActionModeMenuItems(int menuItems);
     int getDisabledActionModeMenuItems();
-
-    void setWillSuppressErrorPage(boolean suppressed);
-    boolean getWillSuppressErrorPage();
 }
