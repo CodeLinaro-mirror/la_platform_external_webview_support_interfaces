@@ -21,6 +21,9 @@ public interface WebSettingsBoundaryInterface {
     void setDisabledActionModeMenuItems(int menuItems);
     int getDisabledActionModeMenuItems();
 
-    void setShouldSuppressErrorPage(boolean suppressed);
-    boolean getShouldSuppressErrorPage();
+    void setWillSuppressErrorPage(boolean suppressed);
+    boolean getWillSuppressErrorPage();
+
+    void setForceDark(int forceDarkMode);
+    int getForceDark();
 }
