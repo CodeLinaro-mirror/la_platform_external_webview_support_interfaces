@@ -7,9 +7,6 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.os.Build;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -64,57 +61,29 @@ public class BoundaryInterfaceReflectionUtil {
     /**
      * Returns an implementation of the boundary interface named clazz, by delegating method calls
      * to the {@link InvocationHandler} invocationHandler.
-     *
-     * <p>A {@code null} {@link InvocationHandler} is treated as representing a {@code null} object.
-     *
-     * @param clazz a {@link Class} object representing the desired boundary interface.
-     * @param invocationHandler an {@link InvocationHandler} compatible with this boundary
-     *     interface.
      */
-    @Nullable
-    public static <T> T castToSuppLibClass(
-            @NonNull Class<T> clazz, @Nullable InvocationHandler invocationHandler) {
-        if (invocationHandler == null) return null;
+    public static <T> T castToSuppLibClass(Class<T> clazz, InvocationHandler invocationHandler) {
         return clazz.cast(
                 Proxy.newProxyInstance(BoundaryInterfaceReflectionUtil.class.getClassLoader(),
                         new Class[] {clazz}, invocationHandler));
     }
 
     /**
-     * Create an {@link InvocationHandler} that delegates method calls to {@code delegate}, making
-     * sure that the {@link Method} and parameters being passed exist in the same {@link
-     * ClassLoader} as {@code delegate}.
-     *
-     * <p>A {@code null} delegate is represented with a {@code null} {@link InvocationHandler}.
-     *
-     * @param delegate the object which the resulting {@link InvocationHandler} should delegate
-     *     method calls to.
-     * @return an InvocationHandlerWithDelegateGetter wrapping {@code delegate}
+     * Create an {@link java.lang.reflect.InvocationHandler} that delegates method calls to
+     * {@param delegate}, making sure that the {@link java.lang.reflect.Method} and parameters being
+     * passed to {@param delegate} exist in the same {@link java.lang.ClassLoader} as {@param
+     * delegate}.
      */
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    @Nullable
-    public static InvocationHandler createInvocationHandlerFor(@Nullable final Object delegate) {
-        if (delegate == null) return null;
+    public static InvocationHandler createInvocationHandlerFor(final Object delegate) {
         return new InvocationHandlerWithDelegateGetter(delegate);
     }
 
     /**
-     * Plural version of {@link #createInvocationHandlerFor(Object)}. The resulting array will be
-     * the same length as {@code delegates}, where the nth {@code InvocationHandler} wraps the nth
-     * delegate object.
-     *
-     * <p>A {@code null} array of delegates is represented with a {@code null} array of {@link
-     * InvocationHandler}s. Any individual {@code null} delegate is represented with a {@code null}
-     * {@link InvocationHandler}.
-
-     * @param delegates an array of objects to which to delegate.
-     * @return an array of InvocationHandlerWithDelegateGetter instances, each delegating to
-     *     the corresponding member of {@code delegates}.
+     * Plural version of {@link #createInvocationHandlerFor(Object)}.
      */
     @TargetApi(Build.VERSION_CODES.KITKAT)
-    @Nullable
-    public static InvocationHandler[] createInvocationHandlersForArray(
-            @Nullable final Object[] delegates) {
+    public static InvocationHandler[] createInvocationHandlersForArray(final Object[] delegates) {
         if (delegates == null) return null;
 
         InvocationHandler[] handlers = new InvocationHandler[delegates.length];
@@ -128,16 +97,8 @@ public class BoundaryInterfaceReflectionUtil {
      * Assuming that the given InvocationHandler was created in the current classloader and is an
      * InvocationHandlerWithDelegateGetter, return the object the InvocationHandler delegates its
      * method calls to.
-     *
-     * <p>A {@code null} {@link InvocationHandler} is treated as wrapping a {@code null} delegate.
-     *
-     * @param invocationHandler a {@link Nullable} InvocationHandlerWithDelegateGetter.
-     * @return the corresponding delegate.
      */
-    @Nullable
-    public static Object getDelegateFromInvocationHandler(
-            @Nullable InvocationHandler invocationHandler) {
-        if (invocationHandler == null) return null;
+    public static Object getDelegateFromInvocationHandler(InvocationHandler invocationHandler) {
         InvocationHandlerWithDelegateGetter objectHolder =
                 (InvocationHandlerWithDelegateGetter) invocationHandler;
         return objectHolder.getDelegate();
@@ -152,7 +113,7 @@ public class BoundaryInterfaceReflectionUtil {
     private static class InvocationHandlerWithDelegateGetter implements InvocationHandler {
         private final Object mDelegate;
 
-        public InvocationHandlerWithDelegateGetter(@NonNull final Object delegate) {
+        public InvocationHandlerWithDelegateGetter(final Object delegate) {
             mDelegate = delegate;
         }
 
@@ -169,10 +130,6 @@ public class BoundaryInterfaceReflectionUtil {
             }
         }
 
-        /**
-         * Gets the delegate object (which is never {@code null}).
-         */
-        @NonNull
         public Object getDelegate() {
             return mDelegate;
         }
