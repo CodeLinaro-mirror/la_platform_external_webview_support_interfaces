@@ -47,6 +47,9 @@ public class Features {
     // WebViewCompat.startSafeBrowsing
     public static final String START_SAFE_BROWSING = "START_SAFE_BROWSING";
 
+    // WebViewCompat.setSafeBrowsingAllowlist
+    public static final String SAFE_BROWSING_ALLOWLIST = "SAFE_BROWSING_ALLOWLIST";
+
     // WebViewCompat.setSafeBrowsingWhitelist
     public static final String SAFE_BROWSING_WHITELIST = "SAFE_BROWSING_WHITELIST";
 
@@ -131,6 +134,9 @@ public class Features {
     // ProxyController.setProxyOverride
     // ProxyController.clearProxyOverride
     public static final String PROXY_OVERRIDE = "PROXY_OVERRIDE:3";
+
+    // ProxyController.setProxyOverride
+    public static final String PROXY_OVERRIDE_REVERSE_BYPASS = "PROXY_OVERRIDE_REVERSE_BYPASS";
 
     // WebSettingsCompat.setWillSuppressErrorPage
     // WebSettingsCompat.getWillSuppressErrorPage
