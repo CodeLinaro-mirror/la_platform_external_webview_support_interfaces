@@ -105,6 +105,9 @@ public class Features {
     public static final String SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL =
             "SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL";
 
+    // WebMessage.getMessagePayload
+    public static final String WEB_MESSAGE_GET_MESSAGE_PAYLOAD = "WEB_MESSAGE_GET_MESSAGE_PAYLOAD";
+
     // WebMessagePortCompat.postMessage
     public static final String WEB_MESSAGE_PORT_POST_MESSAGE = "WEB_MESSAGE_PORT_POST_MESSAGE";
 
@@ -202,4 +205,12 @@ public class Features {
 
     // WebViewCompat.getVariationsHeader
     public static final String GET_VARIATIONS_HEADER = "GET_VARIATIONS_HEADER";
+
+    // WebSettingsCompat.setEnterpriseAuthenticationAppLinkPolicyEnabled
+    // WebSettingsCompat.getEnterpriseAuthenticationAppLinkPolicyEnabled
+    public static final String ENTERPRISE_AUTHENTICATION_APP_LINK_POLICY =
+            "ENTERPRISE_AUTHENTICATION_APP_LINK_POLICY";
+
+    // CookieManagerCompat.getCookieInfo
+    public static final String GET_COOKIE_INFO = "GET_COOKIE_INFO";
 }
