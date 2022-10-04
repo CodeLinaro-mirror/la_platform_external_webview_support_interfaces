@@ -1,4 +1,4 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2018 The Chromium Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -11,6 +11,7 @@ package org.chromium.support_lib_boundary;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.Set;
 
 /**
  * Boundary interface for WebSettingsCompat.
@@ -31,6 +32,9 @@ public interface WebSettingsBoundaryInterface {
     void setForceDark(int forceDarkMode);
     int getForceDark();
 
+    void setAlgorithmicDarkeningAllowed(boolean allow);
+    boolean isAlgorithmicDarkeningAllowed();
+
     @Retention(RetentionPolicy.SOURCE)
     @interface ForceDarkBehavior {
         int FORCE_DARK_ONLY = 0;
@@ -41,4 +45,33 @@ public interface WebSettingsBoundaryInterface {
     void setForceDarkBehavior(@ForceDarkBehavior int forceDarkBehavior);
     @ForceDarkBehavior
     int getForceDarkBehavior();
+
+    @Retention(RetentionPolicy.SOURCE)
+    @interface WebAuthnSupport {
+        int NONE = 0;
+        int APP = 1;
+        int BROWSER = 2;
+    }
+
+    void setWebAuthnSupport(@WebAuthnSupport int support);
+    @WebAuthnSupport
+    int getWebAuthnSupport();
+
+    @Deprecated
+    @Retention(RetentionPolicy.SOURCE)
+    @interface RequestedWithHeaderMode {
+        int NO_HEADER = 0;
+        int APP_PACKAGE_NAME = 1;
+    }
+    @Deprecated
+    void setRequestedWithHeaderMode(@RequestedWithHeaderMode int mode);
+    @Deprecated
+    @RequestedWithHeaderMode
+    int getRequestedWithHeaderMode();
+
+    void setRequestedWithHeaderOriginAllowList(Set<String> allowedOriginRules);
+    Set<String> getRequestedWithHeaderOriginAllowList();
+
+    void setEnterpriseAuthenticationAppLinkPolicyEnabled(boolean enabled);
+    boolean getEnterpriseAuthenticationAppLinkPolicyEnabled();
 }
