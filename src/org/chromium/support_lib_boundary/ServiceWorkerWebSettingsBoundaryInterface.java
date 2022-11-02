@@ -1,10 +1,10 @@
-// Copyright 2018 The Chromium Authors
+// Copyright 2018 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
 package org.chromium.support_lib_boundary;
 
-import java.util.Set;
+import org.chromium.support_lib_boundary.WebSettingsBoundaryInterface.RequestedWithHeaderMode;
 
 /**
  * Boundary interface for ServiceWorkerWebSettings.
@@ -26,7 +26,7 @@ public interface ServiceWorkerWebSettingsBoundaryInterface {
 
     boolean getBlockNetworkLoads();
 
-    void setRequestedWithHeaderOriginAllowList(Set<String> allowedOriginRules);
-
-    Set<String> getRequestedWithHeaderOriginAllowList();
+    void setRequestedWithHeaderMode(@RequestedWithHeaderMode int mode);
+    @RequestedWithHeaderMode
+    int getRequestedWithHeaderMode();
 }
