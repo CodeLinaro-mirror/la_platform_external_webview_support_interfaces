@@ -4,7 +4,11 @@
 
 package org.chromium.support_lib_boundary;
 
+import java.util.List;
+
 /**
- * Boundary interface for WebResourceRequest.
+ * Boundary interface for CookieManagerCompat.
  */
-public interface WebResourceRequestBoundaryInterface { boolean isRedirect(); }
+public interface WebViewCookieManagerBoundaryInterface {
+    List<String> getCookieInfo(String url);
+}
