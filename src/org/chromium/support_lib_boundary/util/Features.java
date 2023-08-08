@@ -105,11 +105,17 @@ public class Features {
     public static final String SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL =
             "SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL";
 
-    // WebMessage.getMessagePayload
-    // WebMessagePayload.getType
-    // WebMessagePayload.getAsString
-    // WebMessagePayload.getAsArrayBuffer
+    /**
+     * Feature was renamed to WEB_MESSAGE_ARRAY_BUFFER.
+     */
     public static final String WEB_MESSAGE_GET_MESSAGE_PAYLOAD = "WEB_MESSAGE_GET_MESSAGE_PAYLOAD";
+
+    // JsReplyProxy.postMessageWithPayload
+    // WebMessage.getMessagePayload
+    // WebMessagePayload.getAsArrayBuffer
+    // WebMessagePayload.getAsString
+    // WebMessagePayload.getType
+    public static final String WEB_MESSAGE_ARRAY_BUFFER = "WEB_MESSAGE_ARRAY_BUFFER";
 
     // WebMessagePortCompat.postMessage
     public static final String WEB_MESSAGE_PORT_POST_MESSAGE = "WEB_MESSAGE_PORT_POST_MESSAGE";
@@ -238,4 +244,7 @@ public class Features {
     // DropDataContentProvider.onDragEnd
     // DropDataContentProvider.call
     public static final String IMAGE_DRAG_DROP = "IMAGE_DRAG_DROP";
+
+    // WebSettingsCompat.enableRestrictSensitiveWebContent
+    public static final String RESTRICT_SENSITIVE_WEB_CONTENT = "RESTRICT_SENSITIVE_WEB_CONTENT";
 }
