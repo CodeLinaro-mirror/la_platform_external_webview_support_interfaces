@@ -1,4 +1,4 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2018 The Chromium Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -11,6 +11,8 @@ package org.chromium.support_lib_boundary;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Boundary interface for WebSettingsCompat.
@@ -56,12 +58,25 @@ public interface WebSettingsBoundaryInterface {
     @WebAuthnSupport
     int getWebAuthnSupport();
 
+    void setRequestedWithHeaderOriginAllowList(Set<String> allowedOriginRules);
+    Set<String> getRequestedWithHeaderOriginAllowList();
+
+    void setEnterpriseAuthenticationAppLinkPolicyEnabled(boolean enabled);
+    boolean getEnterpriseAuthenticationAppLinkPolicyEnabled();
+
+    void setUserAgentMetadataFromMap(Map<String, Object> uaMetadata);
+    Map<String, Object> getUserAgentMetadataMap();
+
     @Retention(RetentionPolicy.SOURCE)
-    @interface RequestedWithHeaderMode {
-        int NO_HEADER = 0;
-        int APP_PACKAGE_NAME = 1;
+    @interface AttributionBehavior {
+        int DISABLED = 0;
+        int APP_SOURCE_AND_WEB_TRIGGER = 1;
+        int WEB_SOURCE_AND_WEB_TRIGGER = 2;
+        int APP_SOURCE_AND_APP_TRIGGER = 3;
     }
-    void setRequestedWithHeaderMode(@RequestedWithHeaderMode int mode);
-    @RequestedWithHeaderMode
-    int getRequestedWithHeaderMode();
+
+    void setAttributionBehavior(@AttributionBehavior int behavior);
+
+    @AttributionBehavior
+    int getAttributionBehavior();
 }
