@@ -4,6 +4,7 @@
 
 package org.chromium.support_lib_boundary;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.lang.reflect.InvocationHandler;
@@ -12,9 +13,13 @@ import java.util.Map;
 /** Boundary interface for PrefetchParams. */
 public interface PrefetchParamsBoundaryInterface {
 
-    @Nullable
+    @NonNull
     Map<String, String> getAdditionalHeaders();
 
     @Nullable
     /* NoVarySearchDataBoundaryInterface */ InvocationHandler getNoVarySearchData();
+
+    default boolean isJavaScriptEnabled() {
+        return false;
+    }
 }
