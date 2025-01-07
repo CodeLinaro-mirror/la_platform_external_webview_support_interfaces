@@ -21,6 +21,7 @@ public interface WebkitToCompatConverterBoundaryInterface {
     // ====================================================
 
     /* SupportLibraryWebSettings */ InvocationHandler convertSettings(WebSettings webSettings);
+
     /* SupportLibraryWebResourceRequest */ InvocationHandler convertWebResourceRequest(
             WebResourceRequest request);
 
@@ -43,28 +44,34 @@ public interface WebkitToCompatConverterBoundaryInterface {
     // ServiceWorkerWebSettings
     /* SupportLibServiceWorkerSettings */ InvocationHandler convertServiceWorkerSettings(
             /* ServiceWorkerWebSettings */ Object serviceWorkerWebSettings);
+
     /* ServiceWorkerWebSettings */ Object convertServiceWorkerSettings(
             /* SupportLibServiceWorkerSettings */ InvocationHandler serviceWorkerSettings);
 
     // WebResourceError
     /* SupportLibWebResourceError */ InvocationHandler convertWebResourceError(
             /* WebResourceError */ Object webResourceError);
+
     /* WebResourceError */ Object convertWebResourceError(
             /* SupportLibWebResourceError */ InvocationHandler webResourceError);
 
     // SafeBrowsingResponse
     /* SupportLibSafeBrowsingResponse */ InvocationHandler convertSafeBrowsingResponse(
             /* SafeBrowsingResponse */ Object safeBrowsingResponse);
+
     /* SafeBrowsingResponse */ Object convertSafeBrowsingResponse(
             /* SupportLibSafeBrowsingResponse */ InvocationHandler safeBrowsingResponse);
 
     // WebMessagePort
     /* SupportLibWebMessagePort */ InvocationHandler convertWebMessagePort(
             /* WebMessagePort */ Object webMessagePort);
+
     /* WebMessagePort */ Object convertWebMessagePort(
             /* SupportLibWebMessagePort */ InvocationHandler webMessagePort);
 
     // CookieManager
     /* SupportLibWebViewCookieManager */ InvocationHandler convertCookieManager(
             Object cookieManager);
+
+    /* SupportLibWebStorage */ InvocationHandler convertWebStorage(Object webStorageManager);
 }
