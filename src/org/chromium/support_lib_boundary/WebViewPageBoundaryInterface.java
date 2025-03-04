@@ -6,6 +6,6 @@ package org.chromium.support_lib_boundary;
 
 import org.jspecify.annotations.NullMarked;
 
+/** Boundary interface for WebViewPage. */
 @NullMarked
-public interface PrefetchDuplicateExceptionBoundaryInterface
-        extends PrefetchExceptionBoundaryInterface {}
+public interface WebViewPageBoundaryInterface extends IsomorphicObjectBoundaryInterface {}
