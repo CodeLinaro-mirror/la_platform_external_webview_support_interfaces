@@ -1,15 +1,19 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2018 The Chromium Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
 package org.chromium.support_lib_boundary.util;
 
+import org.jspecify.annotations.NullMarked;
+
 /**
- * Class containing all the features the support library can support.
- * This class lives in the boundary interface directory so that the Android Support Library and
- * Chromium can share its definition.
+ * Class containing all the features the support library can support. This class lives in the
+ * boundary interface directory so that the Android Support Library and Chromium can share its
+ * definition.
  */
+@NullMarked
 public class Features {
+
     // Features suffixed with DEV will only be visible on debug devices.
     public static final String DEV_SUFFIX = ":dev";
 
@@ -105,6 +109,19 @@ public class Features {
     public static final String SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL =
             "SAFE_BROWSING_RESPONSE_SHOW_INTERSTITIAL";
 
+    /**
+     * @deprecated Feature was renamed to WEB_MESSAGE_ARRAY_BUFFER. Do not reuse feature name.
+     */
+    @Deprecated()
+    public static final String WEB_MESSAGE_GET_MESSAGE_PAYLOAD = "WEB_MESSAGE_GET_MESSAGE_PAYLOAD";
+
+    // JsReplyProxy.postMessageWithPayload
+    // WebMessage.getMessagePayload
+    // WebMessagePayload.getAsArrayBuffer
+    // WebMessagePayload.getAsString
+    // WebMessagePayload.getType
+    public static final String WEB_MESSAGE_ARRAY_BUFFER = "WEB_MESSAGE_ARRAY_BUFFER";
+
     // WebMessagePortCompat.postMessage
     public static final String WEB_MESSAGE_PORT_POST_MESSAGE = "WEB_MESSAGE_PORT_POST_MESSAGE";
 
@@ -134,6 +151,9 @@ public class Features {
     // ProxyController.setProxyOverride
     // ProxyController.clearProxyOverride
     public static final String PROXY_OVERRIDE = "PROXY_OVERRIDE:3";
+
+    // ProxyController.setProxyOverride
+    public static final String PROXY_OVERRIDE_REVERSE_BYPASS = "PROXY_OVERRIDE_REVERSE_BYPASS";
 
     // WebSettingsCompat.setWillSuppressErrorPage
     // WebSettingsCompat.getWillSuppressErrorPage
@@ -173,13 +193,175 @@ public class Features {
     // WebSettingsCompat.getForceDarkBehavior
     public static final String FORCE_DARK_BEHAVIOR = "FORCE_DARK_BEHAVIOR";
 
+    // WebSettingsCompat.setAlgorithmicDarkeningAllowed
+    // WebSettingsCompat.isAlgorithmicDarkeningAllowed
+    public static final String ALGORITHMIC_DARKENING = "ALGORITHMIC_DARKENING";
+
     // WebViewCompat.addWebMessageListener
     // WebViewCompat.removeWebMessageListener
     public static final String WEB_MESSAGE_LISTENER = "WEB_MESSAGE_LISTENER";
 
-    // WebViewProviderFactoryAdapter.setSupportLibraryVersion
-    public static final String SET_SUPPORT_LIBRARY_VERSION = "SET_SUPPORT_LIBRARY_VERSION";
-
     // WebViewCompat.addDocumentStartJavascript
     public static final String DOCUMENT_START_SCRIPT = "DOCUMENT_START_SCRIPT:1";
+
+    // WebSettingsCompat.setWebAuthnSupport
+    // WebSettingsCompat.getWebAuthnSupport
+    public static final String WEB_AUTHENTICATION = "WEB_AUTHENTICATION";
+
+    // WebSettingsCompat.setRequestedWithHeaderMode
+    // WebSettingsCompat.getRequestedWithHeaderMode
+    // ServiceWorkerWebSettingsCompat.setRequestedWithHeaderMode
+    // ServiceWorkerWebSettingsCompat.getRequestedWithHeaderMode
+    /**
+     * @deprecated Feature was never launched. Do not reuse feature name.
+     */
+    @Deprecated()
+    public static final String REQUESTED_WITH_HEADER_CONTROL = "REQUESTED_WITH_HEADER_CONTROL";
+
+    // WebSettingsCompat.setRequestedWithHeaderAllowList
+    // WebSettingsCompat.getRequestedWithHeaderAllowList
+    // ServiceWorkerWebSettingsCompat.setRequestedWithHeaderAllowList
+    // ServiceWorkerWebSettingsCompat.getRequestedWithHeaderAllowList
+    public static final String REQUESTED_WITH_HEADER_ALLOW_LIST =
+            "REQUESTED_WITH_HEADER_ALLOW_LIST";
+
+    // WebViewCompat.getVariationsHeader
+    public static final String GET_VARIATIONS_HEADER = "GET_VARIATIONS_HEADER";
+
+    // WebSettingsCompat.setEnterpriseAuthenticationAppLinkPolicyEnabled
+    // WebSettingsCompat.getEnterpriseAuthenticationAppLinkPolicyEnabled
+    public static final String ENTERPRISE_AUTHENTICATION_APP_LINK_POLICY =
+            "ENTERPRISE_AUTHENTICATION_APP_LINK_POLICY";
+
+    // CookieManagerCompat.getCookieInfo
+    public static final String GET_COOKIE_INFO = "GET_COOKIE_INFO";
+
+    // DropDataContentProvider.onCreate
+    // DropDataContentProvider.getStreamTypes
+    // DropDataContentProvider.openFile
+    // DropDataContentProvider.query
+    // DropDataContentProvider.getType
+    // DropDataContentProvider.cache
+    // DropDataContentProvider.setClearCachedDataIntervalMs
+    // DropDataContentProvider.onDragEnd
+    // DropDataContentProvider.call
+    public static final String IMAGE_DRAG_DROP = "IMAGE_DRAG_DROP";
+
+    // ProfileStore.getInstance
+    // ProfileStore.getOrCreateProfile
+    // ProfileStore.getProfile
+    // ProfileStore.getAllProfileNames
+    // ProfileStore.deleteProfile
+    // Profile.getName
+    // Profile.getCookieManager
+    // Profile.getWebStorage
+    // Profile.getGeolocationPermissions
+    // Profile.getServiceWorkerController
+    public static final String MULTI_PROFILE = "MULTI_PROFILE";
+
+    // WebSettingsCompat.enableRestrictSensitiveWebContent
+    @Deprecated()
+    public static final String RESTRICT_SENSITIVE_WEB_CONTENT = "RESTRICT_SENSITIVE_WEB_CONTENT";
+
+    // WebSettingsCompat.setUserAgentMetadataFromMap
+    // WebSettingsCompat.getUserAgentMetadataMap
+    public static final String USER_AGENT_METADATA = "USER_AGENT_METADATA";
+
+    // WebSettingsCompat.setAttributionBehavior
+    // WebSettingsCompat.getAttributionBehavior
+    public static final String ATTRIBUTION_BEHAVIOR = "ATTRIBUTION_BEHAVIOR";
+
+    // WebSettingsCompat.setWebViewMediaIntegrityApiStatus
+    // WebSettingsCompat.getWebViewMediaIntegrityApiDefaultStatus
+    // WebSettingsCompat.getWebViewMediaIntegrityApiOverrideRules
+    public static final String WEBVIEW_MEDIA_INTEGRITY_API_STATUS = "WEBVIEW_INTEGRITY_API_STATUS";
+
+    // WebViewCompat.setAudioMuted
+    // WebViewCompat.isAudioMuted
+    public static final String MUTE_AUDIO = "MUTE_AUDIO";
+
+    // WebSettingsCompat.setSpeculativeLoadingStatus
+    // WebSettingsCompat.getSpeculativeLoadingStatus
+    public static final String SPECULATIVE_LOADING = "SPECULATIVE_LOADING";
+
+    // WebSettingsCompat.setBackForwardCacheEnabled
+    // WebSettingsCompat.getBackForwardCacheEnabled
+    public static final String BACK_FORWARD_CACHE = "BACK_FORWARD_CACHE";
+
+    // Profile.prefetchUrl
+    // Profile.clearPrefetch
+    public static final String PREFETCH_WITH_URL = "PREFETCH_URL_V4";
+
+    // WebviewCompat.setDefaultTrafficStatsTag
+    // WebviewCompat.setDefaultTrafficStatsUid
+    public static final String DEFAULT_TRAFFICSTATS_TAGGING = "DEFAULT_TRAFFICSTATS_TAGGING";
+
+    // WebViewCompat.startUpWebView
+    public static final String ASYNC_WEBVIEW_STARTUP = "ASYNC_WEBVIEW_STARTUP";
+
+    // WebViewCompat.prerenderUrl
+    // WebViewCompat.clearPrerender
+    public static final String PRERENDER_WITH_URL = "PRERENDER_URL_V2";
+
+    // WebStorageCompat.deleteBrowsingData
+    // WebStorageCompat.deleteBrowsingDataForSite
+    public static final String WEB_STORAGE_DELETE_BROWSING_DATA =
+            "WEB_STORAGE_DELETE_BROWSING_DATA";
+
+    // Profile.setSpeculativeLoadingConfig
+    public static final String SPECULATIVE_LOADING_CONFIG = "SPECULATIVE_LOADING_CONFIG_V2";
+
+    // WebViewCompat.saveState
+    public static final String SAVE_STATE = "SAVE_STATE";
+
+    // Navigation & navigation client set/getter and callbacks:
+    //
+    // WebView.getWebViewNavigation
+    // WebView.getWebViewNavigationClient
+    // WebView.setWebViewNavigationClient
+    //
+    // WebViewNavigationClient.onNavigationStarted()
+    // WebViewNavigationClient.onNavigationRedirected()
+    // WebViewNavigationClient.onNavigationCompleted()
+    // WebViewNavigationClient.onPageDeleted()
+    // WebViewNavigationClient.onPageLoadEventFired()
+    // WebViewNavigationClient.onPageDOMContentLoadedEventFired()
+    // WebViewNavigationClient.onFirstContentfulPaint()
+    //
+    // WebViewNavigation.getUrl()
+    // WebViewNavigation.isPageInitiated()
+    // WebViewNavigation.isSameDocument()
+    // WebViewNavigation.isReload()
+    // WebViewNavigation.isHistory()
+    // WebViewNavigation.isRestore()
+    // WebViewNavigation.isBack()
+    // WebViewNavigation.isForward()
+    // WebViewNavigation.hasCommitted()
+    // WebViewNavigation.didCommitErrorPage()
+    // WebViewNavigation.getStatusCode()
+    public static final String WEB_VIEW_NAVIGATION_CLIENT_BASIC_USAGE =
+            "WEB_VIEW_NAVIGATION_CLIENT_BASIC_USAGE";
+
+    // WebViewCompat.setAsyncShouldInterceptRequestCallback
+    // WebViewCompat.clearAsyncShouldInterceptRequestCallback
+    // ServiceWorkerControllerCompat.setAsyncShouldInterceptRequestCallback
+    // ServiceWorkerControllerCompat.clearAsyncShouldInterceptRequestCallback
+    // AsyncShouldInterceptRequestCallback.shouldInterceptRequestAsync
+    // WebResponseCallback.intercept
+    // WebResponseCallback.doNotIntercept
+    // WebResourceRequest#getRequestHeadersMultiMap
+    // WebResourceResponse#setResponseHeaders
+    // WebResourceResponse#getResponseHeaders
+    // WebResourceResponse#setResponseHeadersMultiMap
+    // WebResourceResponse#getResponseHeadersMultiMap
+    public static final String ASYNC_SHOULD_INTERCEPT_REQUEST = "ASYNC_SHOULD_INTERCEPT_REQUEST";
+
+    // SupportLibWebViewChromium weakly reference WebView
+    public static final String PROVIDER_WEAKLY_REF_WEBVIEW = "PROVIDER_WEAKLY_REF_WEBVIEW";
+
+    // WebSettingsCompat#setPaymentRequestEnabled
+    // WebSettingsCompat#getPaymentRequestEnabled
+    // WebSettingsCompat#setHasEnrolledInstrumentEnabled
+    // WebSettingsCompat#getHasEnrolledInstrumentEnabled
+    public static final String PAYMENT_REQUEST = "PAYMENT_REQUEST";
 }
