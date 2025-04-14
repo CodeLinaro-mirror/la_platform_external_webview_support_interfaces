@@ -4,11 +4,12 @@
 
 package org.chromium.support_lib_boundary;
 
+import org.jspecify.annotations.NullMarked;
+
 import java.util.Set;
 
-/**
- * Boundary interface for ServiceWorkerWebSettings.
- */
+/** Boundary interface for ServiceWorkerWebSettings. */
+@NullMarked
 public interface ServiceWorkerWebSettingsBoundaryInterface {
     void setCacheMode(int mode);
 
