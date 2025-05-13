@@ -4,10 +4,7 @@
 
 package org.chromium.support_lib_boundary;
 
-// Technically this interface is not needed until we add a method to WebSettings with an
-// android.webkit parameter or android.webkit return value. But for forwards compatibility all
-// app-facing classes should have a boundary-interface that the WebView glue layer can build
-// against.
+import org.jspecify.annotations.NullMarked;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -16,7 +13,13 @@ import java.lang.annotation.Target;
 import java.util.Map;
 import java.util.Set;
 
+// Technically this interface is not needed until we add a method to WebSettings with an
+// android.webkit parameter or android.webkit return value. But for forwards compatibility all
+// app-facing classes should have a boundary-interface that the WebView glue layer can build
+// against.
+
 /** Boundary interface for WebSettingsCompat. */
+@NullMarked
 public interface WebSettingsBoundaryInterface {
     void setOffscreenPreRaster(boolean enabled);
 
@@ -55,16 +58,16 @@ public interface WebSettingsBoundaryInterface {
     int getForceDarkBehavior();
 
     @Retention(RetentionPolicy.SOURCE)
-    @interface WebAuthnSupport {
+    @interface WebauthnSupport {
         int NONE = 0;
         int APP = 1;
         int BROWSER = 2;
     }
 
-    void setWebAuthnSupport(@WebAuthnSupport int support);
+    void setWebauthnSupport(@WebauthnSupport int support);
 
-    @WebAuthnSupport
-    int getWebAuthnSupport();
+    @WebauthnSupport
+    int getWebauthnSupport();
 
     void setRequestedWithHeaderOriginAllowList(Set<String> allowedOriginRules);
 
@@ -107,4 +110,31 @@ public interface WebSettingsBoundaryInterface {
     int getWebViewMediaIntegrityApiDefaultStatus();
 
     Map<String, @WebViewMediaIntegrityApiStatus Integer> getWebViewMediaIntegrityApiOverrideRules();
+
+    @Retention(RetentionPolicy.SOURCE)
+    @interface SpeculativeLoadingStatus {
+        int DISABLED = 0;
+        int PRERENDER_ENABLED = 1;
+    }
+
+    void setSpeculativeLoadingStatus(@SpeculativeLoadingStatus int speculativeLoadingStatus);
+
+    @SpeculativeLoadingStatus
+    int getSpeculativeLoadingStatus();
+
+    void setBackForwardCacheEnabled(boolean backForwardCacheEnabled);
+
+    boolean getBackForwardCacheEnabled();
+
+    void setPaymentRequestEnabled(boolean enabled);
+
+    boolean getPaymentRequestEnabled();
+
+    void setHasEnrolledInstrumentEnabled(boolean enabled);
+
+    boolean getHasEnrolledInstrumentEnabled();
+
+    void setIncludeCookiesOnIntercept(boolean includeCookiesOnIntercept);
+
+    boolean getIncludeCookiesOnIntercept();
 }
