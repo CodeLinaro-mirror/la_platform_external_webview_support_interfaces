@@ -1,14 +1,15 @@
-// Copyright 2018 The Chromium Authors. All rights reserved.
+// Copyright 2018 The Chromium Authors
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
 package org.chromium.support_lib_boundary;
 
-import org.chromium.support_lib_boundary.WebSettingsBoundaryInterface.RequestedWithHeaderMode;
+import org.jspecify.annotations.NullMarked;
 
-/**
- * Boundary interface for ServiceWorkerWebSettings.
- */
+import java.util.Set;
+
+/** Boundary interface for ServiceWorkerWebSettings. */
+@NullMarked
 public interface ServiceWorkerWebSettingsBoundaryInterface {
     void setCacheMode(int mode);
 
@@ -26,7 +27,11 @@ public interface ServiceWorkerWebSettingsBoundaryInterface {
 
     boolean getBlockNetworkLoads();
 
-    void setRequestedWithHeaderMode(@RequestedWithHeaderMode int mode);
-    @RequestedWithHeaderMode
-    int getRequestedWithHeaderMode();
+    void setRequestedWithHeaderOriginAllowList(Set<String> allowedOriginRules);
+
+    Set<String> getRequestedWithHeaderOriginAllowList();
+
+    void setIncludeCookiesOnIntercept(boolean includeCookiesOnIntercept);
+
+    boolean getIncludeCookiesOnIntercept();
 }
