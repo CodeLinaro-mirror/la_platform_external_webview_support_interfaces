@@ -10,10 +10,15 @@ import android.webkit.GeolocationPermissions;
 import android.webkit.ServiceWorkerController;
 import android.webkit.WebStorage;
 
+import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
+
 import java.lang.reflect.InvocationHandler;
+import java.util.Set;
 import java.util.concurrent.Executor;
 
 /** Boundary interface for Profile. */
+@NullMarked
 public interface ProfileBoundaryInterface {
     String getName();
 
@@ -27,13 +32,13 @@ public interface ProfileBoundaryInterface {
 
     void prefetchUrl(
             String url,
-            CancellationSignal cancellationSignal,
+            @Nullable CancellationSignal cancellationSignal,
             Executor callbackExecutor,
             /* PrefetchOperationCallback */ InvocationHandler callback);
 
     void prefetchUrl(
             String url,
-            CancellationSignal cancellationSignal,
+            @Nullable CancellationSignal cancellationSignal,
             Executor callbackExecutor,
             /* SpeculativeLoadingParameters */ InvocationHandler speculativeLoadingParams,
             /* PrefetchOperationCallback */ InvocationHandler callback);
@@ -44,4 +49,14 @@ public interface ProfileBoundaryInterface {
             /* PrefetchOperationCallback */ InvocationHandler callback);
 
     void setSpeculativeLoadingConfig(/* SpeculativeLoadingConfig */ InvocationHandler config);
+
+    void warmUpRendererProcess();
+
+    void setOriginMatchedHeader(String headerName, String headerValue, Set<String> originRules);
+
+    boolean hasOriginMatchedHeader(String headerName);
+
+    void clearOriginMatchedHeader(String headerName);
+
+    void clearAllOriginMatchedHeaders();
 }
