@@ -30,8 +30,4 @@ public interface ServiceWorkerWebSettingsBoundaryInterface {
     void setRequestedWithHeaderOriginAllowList(Set<String> allowedOriginRules);
 
     Set<String> getRequestedWithHeaderOriginAllowList();
-
-    void setIncludeCookiesOnIntercept(boolean includeCookiesOnIntercept);
-
-    boolean getIncludeCookiesOnIntercept();
 }

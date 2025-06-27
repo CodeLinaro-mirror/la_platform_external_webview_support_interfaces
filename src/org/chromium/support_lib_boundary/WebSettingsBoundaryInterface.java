@@ -133,8 +133,4 @@ public interface WebSettingsBoundaryInterface {
     void setHasEnrolledInstrumentEnabled(boolean enabled);
 
     boolean getHasEnrolledInstrumentEnabled();
-
-    void setIncludeCookiesOnIntercept(boolean includeCookiesOnIntercept);
-
-    boolean getIncludeCookiesOnIntercept();
 }
