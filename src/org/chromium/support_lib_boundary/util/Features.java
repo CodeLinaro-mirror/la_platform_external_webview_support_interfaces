@@ -4,11 +4,14 @@
 
 package org.chromium.support_lib_boundary.util;
 
+import org.jspecify.annotations.NullMarked;
+
 /**
  * Class containing all the features the support library can support. This class lives in the
  * boundary interface directory so that the Android Support Library and Chromium can share its
  * definition.
  */
+@NullMarked
 public class Features {
 
     // Features suffixed with DEV will only be visible on debug devices.
@@ -287,7 +290,7 @@ public class Features {
 
     // Profile.prefetchUrl
     // Profile.clearPrefetch
-    public static final String PREFETCH_WITH_URL = "PREFETCH_URL_V3";
+    public static final String PREFETCH_WITH_URL = "PREFETCH_URL_V5";
 
     // WebviewCompat.setDefaultTrafficStatsTag
     // WebviewCompat.setDefaultTrafficStatsUid
@@ -298,7 +301,7 @@ public class Features {
 
     // WebViewCompat.prerenderUrl
     // WebViewCompat.clearPrerender
-    public static final String PRERENDER_WITH_URL = "PRERENDER_URL_V2";
+    public static final String PRERENDER_WITH_URL = "PRERENDER_URL_V3";
 
     // WebStorageCompat.deleteBrowsingData
     // WebStorageCompat.deleteBrowsingDataForSite
@@ -306,5 +309,64 @@ public class Features {
             "WEB_STORAGE_DELETE_BROWSING_DATA";
 
     // Profile.setSpeculativeLoadingConfig
-    public static final String SPECULATIVE_LOADING_CONFIG = "SPECULATIVE_LOADING_CONFIG";
+    public static final String SPECULATIVE_LOADING_CONFIG = "SPECULATIVE_LOADING_CONFIG_V2";
+
+    // WebViewCompat.saveState
+    public static final String SAVE_STATE = "SAVE_STATE";
+
+    // Navigation & navigation client set/getter and callbacks:
+    //
+    // WebView.getWebViewNavigation
+    // WebView.getWebViewNavigationClient
+    // WebView.setWebViewNavigationClient
+    //
+    // WebViewNavigationClient.onNavigationStarted()
+    // WebViewNavigationClient.onNavigationRedirected()
+    // WebViewNavigationClient.onNavigationCompleted()
+    // WebViewNavigationClient.onPageDeleted()
+    // WebViewNavigationClient.onPageLoadEventFired()
+    // WebViewNavigationClient.onPageDOMContentLoadedEventFired()
+    // WebViewNavigationClient.onFirstContentfulPaint()
+    //
+    // WebViewNavigation.getUrl()
+    // WebViewNavigation.isPageInitiated()
+    // WebViewNavigation.isSameDocument()
+    // WebViewNavigation.isReload()
+    // WebViewNavigation.isHistory()
+    // WebViewNavigation.isRestore()
+    // WebViewNavigation.isBack()
+    // WebViewNavigation.isForward()
+    // WebViewNavigation.hasCommitted()
+    // WebViewNavigation.didCommitErrorPage()
+    // WebViewNavigation.getStatusCode()
+    public static final String WEB_VIEW_NAVIGATION_CLIENT_BASIC_USAGE =
+            "WEB_VIEW_NAVIGATION_CLIENT_BASIC_USAGE";
+
+    // SupportLibWebViewChromium weakly reference WebView
+    public static final String PROVIDER_WEAKLY_REF_WEBVIEW = "PROVIDER_WEAKLY_REF_WEBVIEW";
+
+    // WebSettingsCompat#setPaymentRequestEnabled
+    // WebSettingsCompat#getPaymentRequestEnabled
+    // WebSettingsCompat#setHasEnrolledInstrumentEnabled
+    // WebSettingsCompat#getHasEnrolledInstrumentEnabled
+    public static final String PAYMENT_REQUEST = "PAYMENT_REQUEST";
+
+    // WebViewBuilder
+    public static final String WEBVIEW_BUILDER = "WEBVIEW_BUILDER";
+
+    // WebSettingsCompat.setIncludeCookiesOnIntercept
+    // WebSettingsCompat.getIncludeCookiesOnIntercept
+    // ServiceWorkerWebSettingsCompat.setIncludeCookiesOnIntercept
+    // ServiceWorkerWebSettingsCompat.getIncludeCookiesOnIntercept
+    // WebResourceResponseCompat.setCookieHeaderValues
+    public static final String COOKIE_INTERCEPT = "COOKIE_INTERCEPT";
+
+    // Profile.warmUpRendererProcess
+    public static final String WARM_UP_RENDERER_PROCESS = "WARM_UP_RENDERER_PROCESS";
+
+    // Profile.setExtraHeaderForOrigins
+    // Profile.hasExtraHeaderForOrigins
+    // Profile.clearExtraHeaderForOrigins
+    // Profile.clearAllExtraHeadersForOrigins
+    public static final String EXTRA_HEADER_FOR_ORIGINS = "EXTRA_HEADER_FOR_ORIGINS";
 }
