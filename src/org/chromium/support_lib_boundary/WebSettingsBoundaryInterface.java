@@ -4,19 +4,24 @@
 
 package org.chromium.support_lib_boundary;
 
-// Technically this interface is not needed until we add a method to WebSettings with an
-// android.webkit parameter or android.webkit return value. But for forwards compatibility all
-// app-facing classes should have a boundary-interface that the WebView glue layer can build
-// against.
+import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.lang.reflect.InvocationHandler;
 import java.util.Map;
 import java.util.Set;
 
+// Technically this interface is not needed until we add a method to WebSettings with an
+// android.webkit parameter or android.webkit return value. But for forwards compatibility all
+// app-facing classes should have a boundary-interface that the WebView glue layer can build
+// against.
+
 /** Boundary interface for WebSettingsCompat. */
+@NullMarked
 public interface WebSettingsBoundaryInterface {
     void setOffscreenPreRaster(boolean enabled);
 
@@ -122,4 +127,21 @@ public interface WebSettingsBoundaryInterface {
     void setBackForwardCacheEnabled(boolean backForwardCacheEnabled);
 
     boolean getBackForwardCacheEnabled();
+
+    void setBackForwardCacheSettings(
+            /* BackForwardCacheSettings */ InvocationHandler backForwardCacheSettings);
+
+    @Nullable /* BackForwardCacheSettings */ InvocationHandler getBackForwardCacheSettings();
+
+    void setPaymentRequestEnabled(boolean enabled);
+
+    boolean getPaymentRequestEnabled();
+
+    void setHasEnrolledInstrumentEnabled(boolean enabled);
+
+    boolean getHasEnrolledInstrumentEnabled();
+
+    void setIncludeCookiesOnIntercept(boolean includeCookiesOnIntercept);
+
+    boolean getIncludeCookiesOnIntercept();
 }
