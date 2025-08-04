@@ -6,13 +6,11 @@ package org.chromium.support_lib_boundary;
 
 import org.jspecify.annotations.NullMarked;
 
-/** Boundary interface for SpeculativeLoadingConfig. */
+/** Boundary interface for WebViewBackForwardCacheSettings. */
 @NullMarked
-public interface SpeculativeLoadingConfigBoundaryInterface {
+public interface WebViewBackForwardCacheSettingsBoundaryInterface
+        extends IsomorphicObjectBoundaryInterface {
+    int getTimeoutInSeconds();
 
-    int getMaxPrefetches();
-
-    int getPrefetchTTLSeconds();
-
-    int getMaxPrerenders();
+    int getMaxPagesInCache();
 }
