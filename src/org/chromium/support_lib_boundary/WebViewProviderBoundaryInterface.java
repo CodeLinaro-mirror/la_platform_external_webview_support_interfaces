@@ -17,9 +17,9 @@ import org.jspecify.annotations.Nullable;
 import java.lang.reflect.InvocationHandler;
 import java.util.concurrent.Executor;
 
-/** */
 @NullMarked
 public interface WebViewProviderBoundaryInterface {
+
     void insertVisualStateCallback(
             long requestId, /* VisualStateCallback */ InvocationHandler callback);
 
@@ -72,4 +72,9 @@ public interface WebViewProviderBoundaryInterface {
             ValueCallback<Throwable> errorCallback);
 
     void saveState(Bundle outState, int maxSize, boolean includeForwardState);
+
+    /* WebViewNavigationClient */ @Nullable InvocationHandler getWebViewNavigationClient();
+
+    void setWebViewNavigationClient(
+            /* WebViewNavigationClient */ @Nullable InvocationHandler webViewNavigationClient);
 }

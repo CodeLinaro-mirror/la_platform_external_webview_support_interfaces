@@ -6,6 +6,11 @@ package org.chromium.support_lib_boundary;
 
 import org.jspecify.annotations.NullMarked;
 
+/** Boundary interface for WebViewBackForwardCacheSettings. */
 @NullMarked
-public interface PrefetchDuplicateExceptionBoundaryInterface
-        extends PrefetchExceptionBoundaryInterface {}
+public interface WebViewBackForwardCacheSettingsBoundaryInterface
+        extends IsomorphicObjectBoundaryInterface {
+    int getTimeoutInSeconds();
+
+    int getMaxPagesInCache();
+}
