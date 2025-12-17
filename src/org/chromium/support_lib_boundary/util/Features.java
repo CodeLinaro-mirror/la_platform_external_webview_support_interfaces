@@ -361,10 +361,20 @@ public class Features {
     // WebViewNavigationListener.onFirstContentfulPaint()
     public static final String WEB_VIEW_NAVIGATION_LISTENER_V1 = "WEB_VIEW_NAVIGATION_LISTENER_V1";
 
+    // WebViewNavigationListener.onFirstContentfulPaintMillis
+    // WebViewNavigationListener.onLargestContentfulPaintMillis
+    // WebViewNavigationListener.onPerformanceMarkMillis
+    public static final String WEB_VIEW_NAVIGATION_LISTENER_V2 = "WEB_VIEW_NAVIGATION_LISTENER_V2";
+
     // WebViewNavigationListener.onNavigationCompleted() firing on non-committed
     // navigations
     public static final String ON_NAVIGATION_COMPLETED_NON_COMMITTED =
             "ON_NAVIGATION_COMPLETED_NON_COMMITTED";
+
+    // Navigation.getPage() will return a non-null Page for all committed
+    // navigations, including same-document-navigations.
+    public static final String COMMITTED_NAVIGATION_GET_PAGE_NON_NULL =
+            "COMMITTED_NAVIGATION_GET_PAGE_NON_NULL";
 
     // SupportLibWebViewChromium weakly reference WebView
     public static final String PROVIDER_WEAKLY_REF_WEBVIEW = "PROVIDER_WEAKLY_REF_WEBVIEW";
