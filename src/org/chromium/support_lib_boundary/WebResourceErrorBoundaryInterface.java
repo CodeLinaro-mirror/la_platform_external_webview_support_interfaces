@@ -11,7 +11,5 @@ import org.jspecify.annotations.NullMarked;
 public interface WebResourceErrorBoundaryInterface {
     int getErrorCode();
 
-    int getDebugCode();
-
     CharSequence getDescription();
 }

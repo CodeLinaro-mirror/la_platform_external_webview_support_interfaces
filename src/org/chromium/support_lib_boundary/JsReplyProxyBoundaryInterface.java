@@ -16,8 +16,4 @@ public interface JsReplyProxyBoundaryInterface extends IsomorphicObjectBoundaryI
     void postMessage(String message);
 
     void postMessageWithPayload(/* MessagePayload */ @Nullable InvocationHandler payload);
-
-    void executeJavaScript(
-            String javaScript,
-            /* ExecuteJavaScriptCallbackBoundaryInterface */ @Nullable InvocationHandler callback);
 }
