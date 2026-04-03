@@ -50,6 +50,18 @@ public interface ProfileBoundaryInterface {
             Executor callbackExecutor,
             /* PrefetchOperationCallback */ InvocationHandler callback);
 
+    void setMaxPrerenders(@Nullable Integer maxPrerenders);
+
+    void setMaxPrefetches(@Nullable Integer maxPrefetches);
+
+    void setPrefetchTtlSeconds(@Nullable Integer prefetchTtlSeconds);
+
+    int getMaxPrerenders();
+
+    int getMaxPrefetches();
+
+    int getPrefetchTtlSeconds();
+
     void setSpeculativeLoadingConfig(/* SpeculativeLoadingConfig */ InvocationHandler config);
 
     void warmUpRendererProcess();
@@ -82,4 +94,6 @@ public interface ProfileBoundaryInterface {
     void clearAllOriginMatchedHeaders();
 
     void preconnect(String url);
+
+    void addQuicHints(Set<String> origins);
 }
