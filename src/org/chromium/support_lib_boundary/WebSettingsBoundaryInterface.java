@@ -167,7 +167,24 @@ public interface WebSettingsBoundaryInterface {
 
     void setHyperlinkContextMenuItems(@HyperlinkContextMenuItems int hyperlinkMenuItems);
 
-    void setBackForwardCacheSettingsTimeout(int timeout);
+    void setBackForwardCacheSettingsTimeout(long timeout);
 
     void setBackForwardCacheSettingsMaxPagesInCache(int pagesInCache);
+
+    void setBackForwardCacheSettingsKeepForwardEntries(
+            boolean keepForwardEntries);
+
+    long getBackForwardCacheSettingsTimeout();
+
+    int getBackForwardCacheSettingsMaxPagesInCache();
+
+    boolean getBackForwardCacheSettingsKeepForwardEntries();
+
+    void setIgnoreDuplicateNavEnabled(boolean ignoreDuplicateNavEnabled);
+
+    boolean getIgnoreDuplicateNavEnabled();
+
+    void setIgnoreDuplicateNavThreshold(int thresholdMs);
+
+    int getIgnoreDuplicateNavThreshold();
 }
