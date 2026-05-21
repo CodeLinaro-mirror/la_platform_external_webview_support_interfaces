@@ -296,6 +296,23 @@ public class Features {
     // Profile.clearPrefetch
     public static final String PREFETCH_WITH_URL = "PREFETCH_URL_V5";
 
+    // Profile.getMaxPrefetches
+    // Profile.getPrefetchTtlSeconds
+    // Profile.setMaxPrefetches
+    // Profile.setPrefetchTtlSeconds
+    // Profile.clearMaxPrefetches
+    // Profile.clearPrefetchTtl
+    public static final String PREFETCH_CACHE = "PREFETCH_CACHE_V1";
+
+    // PrefetchOperationCallbackBoundaryInterface.onResult
+    public static final String PREFETCH_WITH_CALLBACK_RESULT_V1 =
+            "PREFETCH_WITH_CALLBACK_RESULT_V1";
+
+    // Profile.getMaxPrerenders
+    // Profile.setMaxPrerenders
+    // Profile.clearMaxPrerenders
+    public static final String SET_MAX_PRERENDERS = "SET_MAX_PRERENDERS_V1";
+
     // WebviewCompat.setDefaultTrafficStatsTag
     // WebviewCompat.setDefaultTrafficStatsUid
     public static final String DEFAULT_TRAFFICSTATS_TAGGING = "DEFAULT_TRAFFICSTATS_TAGGING";
@@ -305,6 +322,10 @@ public class Features {
     // WebViewStartUpResult.getAsyncStartUpLocations
     public static final String ASYNC_WEBVIEW_STARTUP_ASYNC_STARTUP_LOCATIONS =
             "ASYNC_WEBVIEW_STARTUP_ASYNC_STARTUP_LOCATIONS";
+
+    // WebViewCompat.startUpWebView
+    // WebViewStartUpResult.getAsyncStartUpLocations
+    public static final String ASYNC_WEBVIEW_STARTUP_V2 = "ASYNC_WEBVIEW_STARTUP_V2";
 
     // WebViewCompat.prerenderUrl
     // WebViewCompat.clearPrerender
@@ -419,6 +440,10 @@ public class Features {
     // V2 was deleted as it didn't get released and we made a major type change in V3.
     public static final String BACK_FORWARD_CACHE_SETTINGS_V3 = "BACK_FORWARD_CACHE_SETTINGS_V3";
 
+    // BackForwardCacheSettings.setKeepForwardEntries
+    // BackForwardCacheSettings.getKeepForwardEntries
+    public static final String BACK_FORWARD_CACHE_SETTINGS_V4 = "BACK_FORWARD_CACHE_SETTINGS_V4";
+
     // Profile.preconnect
     public static final String PRECONNECT = "PRECONNECT";
 
@@ -439,9 +464,30 @@ public class Features {
     // Profile.addQuicHints
     public static final String ADD_QUIC_HINTS_V1 = "ADD_QUIC_HINTS_V1";
 
+    // JsReplyProxy.executeJavaScript
+    // WebViewCompat.addJavaScriptOnEvent
+    // WebViewCompat.removeJavaScriptOnEvent
+    // WebViewCompat.addWebMessageListener with world
+    // WebViewCompat.removeWebMessageListener with world
+    // WebViewCompat.getJavaScriptWorld
+    public static final String JS_INJECTION_IN_FRAME_AND_WORLD = "JS_INJECTION_IN_FRAME_AND_WORLD";
+
     // WebViewBuilder.applyTo
     public static final String WEBVIEW_BUILDER_V2 = "WEBVIEW_BUILDER_V2";
 
     // Page.getUrl
     public static final String PAGE_GET_URL = "PAGE_GET_URL";
+
+    // Navigation.getWebResourceError
+    public static final String NAVIGATION_GET_WEB_RESOURCE_ERROR =
+            "NAVIGATION_GET_WEB_RESOURCE_ERROR";
+
+    // WebViewSettings.setIgnoreDuplicateNavEnabled
+    // WebViewSettings.getIgnoreDuplicateNavEnabled
+    // WebViewSettings.setIgnoreDuplicateNavThreshold
+    // WebViewSettings.getIgnoreDuplicateNavThreshold
+    public static final String IGNORE_DUPLICATE_NAV = "IGNORE_DUPLICATE_NAV";
+
+    // WebViewCompat.navigate
+    public static final String WEBVIEW_NAVIGATE_V1 = "WEBVIEW_NAVIGATE_V1";
 }
