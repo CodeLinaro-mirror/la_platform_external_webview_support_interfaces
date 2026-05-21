@@ -300,6 +300,8 @@ public class Features {
     // Profile.getPrefetchTtlSeconds
     // Profile.setMaxPrefetches
     // Profile.setPrefetchTtlSeconds
+    // Profile.clearMaxPrefetches
+    // Profile.clearPrefetchTtl
     public static final String PREFETCH_CACHE = "PREFETCH_CACHE_V1";
 
     // PrefetchOperationCallbackBoundaryInterface.onResult
@@ -308,6 +310,7 @@ public class Features {
 
     // Profile.getMaxPrerenders
     // Profile.setMaxPrerenders
+    // Profile.clearMaxPrerenders
     public static final String SET_MAX_PRERENDERS = "SET_MAX_PRERENDERS_V1";
 
     // WebviewCompat.setDefaultTrafficStatsTag
@@ -484,4 +487,7 @@ public class Features {
     // WebViewSettings.setIgnoreDuplicateNavThreshold
     // WebViewSettings.getIgnoreDuplicateNavThreshold
     public static final String IGNORE_DUPLICATE_NAV = "IGNORE_DUPLICATE_NAV";
+
+    // WebViewCompat.navigate
+    public static final String WEBVIEW_NAVIGATE_V1 = "WEBVIEW_NAVIGATE_V1";
 }
