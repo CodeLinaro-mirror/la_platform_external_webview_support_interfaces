@@ -457,10 +457,6 @@ public class Features {
     // Profile.hasCustomHeader
     public static final String CUSTOM_REQUEST_HEADERS = "CUSTOM_REQUEST_HEADERS";
 
-    // WebViewCompat#setRendererLibraryPrefetchMode
-    // WebViewCompat#getRendererLibraryPrefetchMode
-    public static final String RENDERER_LIBRARY_PREFETCH_MODE = "RENDERER_LIBRARY_PREFETCH_MODE";
-
     // Profile.addQuicHints
     public static final String ADD_QUIC_HINTS_V1 = "ADD_QUIC_HINTS_V1";
 
@@ -490,4 +486,8 @@ public class Features {
 
     // WebViewCompat.navigate
     public static final String WEBVIEW_NAVIGATE_V1 = "WEBVIEW_NAVIGATE_V1";
+
+    // WebSettingsCompat.setDownloadFaviconsEnabled
+    // WebSettingsCompat.getDownloadFaviconsEnabled
+    public static final String DOWNLOAD_FAVICONS_ENABLED = "DOWNLOAD_FAVICONS_ENABLED";
 }
