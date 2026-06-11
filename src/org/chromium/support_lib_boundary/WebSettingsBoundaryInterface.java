@@ -166,4 +166,29 @@ public interface WebSettingsBoundaryInterface {
     // LINT.ThenChange(/android_webview/java/src/org/chromium/android_webview/AwSettings.java:AwSettingsHyperlinkContextMenuItems)
 
     void setHyperlinkContextMenuItems(@HyperlinkContextMenuItems int hyperlinkMenuItems);
+
+    void setBackForwardCacheSettingsTimeout(long timeout);
+
+    void setBackForwardCacheSettingsMaxPagesInCache(int pagesInCache);
+
+    void setBackForwardCacheSettingsKeepForwardEntries(
+            boolean keepForwardEntries);
+
+    long getBackForwardCacheSettingsTimeout();
+
+    int getBackForwardCacheSettingsMaxPagesInCache();
+
+    boolean getBackForwardCacheSettingsKeepForwardEntries();
+
+    void setIgnoreDuplicateNavEnabled(boolean ignoreDuplicateNavEnabled);
+
+    boolean getIgnoreDuplicateNavEnabled();
+
+    void setIgnoreDuplicateNavThreshold(long thresholdMs);
+
+    long getIgnoreDuplicateNavThreshold();
+
+    void setDownloadFaviconsEnabled(boolean enabled);
+
+    boolean getDownloadFaviconsEnabled();
 }
