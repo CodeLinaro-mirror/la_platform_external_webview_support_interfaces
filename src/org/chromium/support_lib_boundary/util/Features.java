@@ -300,6 +300,8 @@ public class Features {
     // Profile.getPrefetchTtlSeconds
     // Profile.setMaxPrefetches
     // Profile.setPrefetchTtlSeconds
+    // Profile.clearMaxPrefetches
+    // Profile.clearPrefetchTtl
     public static final String PREFETCH_CACHE = "PREFETCH_CACHE_V1";
 
     // PrefetchOperationCallbackBoundaryInterface.onResult
@@ -308,6 +310,7 @@ public class Features {
 
     // Profile.getMaxPrerenders
     // Profile.setMaxPrerenders
+    // Profile.clearMaxPrerenders
     public static final String SET_MAX_PRERENDERS = "SET_MAX_PRERENDERS_V1";
 
     // WebviewCompat.setDefaultTrafficStatsTag
@@ -444,6 +447,9 @@ public class Features {
     // Profile.preconnect
     public static final String PRECONNECT = "PRECONNECT";
 
+    // Profile.enqueuePreconnect
+    public static final String ENQUEUE_PRECONNECT = "ENQUEUE_PRECONNECT";
+
     // WebSettingsCompat#setHyperlinkContextMenuItems
     public static final String HYPERLINK_CONTEXT_MENU_ITEMS = "HYPERLINK_CONTEXT_MENU_ITEMS";
 
@@ -453,10 +459,6 @@ public class Features {
     // Profile.getCustomHeaders
     // Profile.hasCustomHeader
     public static final String CUSTOM_REQUEST_HEADERS = "CUSTOM_REQUEST_HEADERS";
-
-    // WebViewCompat#setRendererLibraryPrefetchMode
-    // WebViewCompat#getRendererLibraryPrefetchMode
-    public static final String RENDERER_LIBRARY_PREFETCH_MODE = "RENDERER_LIBRARY_PREFETCH_MODE";
 
     // Profile.addQuicHints
     public static final String ADD_QUIC_HINTS_V1 = "ADD_QUIC_HINTS_V1";
@@ -479,9 +481,19 @@ public class Features {
     public static final String NAVIGATION_GET_WEB_RESOURCE_ERROR =
             "NAVIGATION_GET_WEB_RESOURCE_ERROR";
 
-    // WebViewSettings.setIgnoreDuplicateNavEnabled
-    // WebViewSettings.getIgnoreDuplicateNavEnabled
-    // WebViewSettings.setIgnoreDuplicateNavThreshold
-    // WebViewSettings.getIgnoreDuplicateNavThreshold
-    public static final String IGNORE_DUPLICATE_NAV = "IGNORE_DUPLICATE_NAV";
+
+    // WebViewCompat.navigate
+    public static final String WEBVIEW_NAVIGATE_V1 = "WEBVIEW_NAVIGATE_V1";
+
+    // WebSettingsCompat.setDownloadFaviconsEnabled
+    // WebSettingsCompat.getDownloadFaviconsEnabled
+    public static final String DOWNLOAD_FAVICONS_ENABLED = "DOWNLOAD_FAVICONS_ENABLED";
+
+    // Profile.getHttpCache
+    // HttpCache.getDefaultQuotaBytes
+    // HttpCache.isUsingDefaultQuota
+    // HttpCache.useDefaultQuota
+    // HttpCache.getQuotaBytes
+    // HttpCache.setQuotaBytes
+    public static final String HTTP_CACHE_MANAGER = "HTTP_CACHE_MANAGER";
 }
