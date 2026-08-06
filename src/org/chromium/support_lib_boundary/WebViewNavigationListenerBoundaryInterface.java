@@ -4,11 +4,13 @@
 
 package org.chromium.support_lib_boundary;
 
+import org.jspecify.annotations.NullMarked;
+
 import java.lang.reflect.InvocationHandler;
 
-/** Boundary interface for WebViewNavigationClient. */
-@Deprecated
-public interface WebViewNavigationClientBoundaryInterface
+/** Boundary interface for WebViewNavigationListener. */
+@NullMarked
+public interface WebViewNavigationListenerBoundaryInterface
         extends FeatureFlagHolderBoundaryInterface {
     void onNavigationStarted(/* WebViewNavigation */ InvocationHandler navigation);
 
@@ -16,11 +18,22 @@ public interface WebViewNavigationClientBoundaryInterface
 
     void onNavigationCompleted(/* WebViewNavigation */ InvocationHandler navigation);
 
+    default void onNavigationVisible(/* WebViewNavigation */ InvocationHandler navigation) {}
+
     void onPageDeleted(/* WebViewPage */ InvocationHandler page);
 
     void onPageLoadEventFired(/* WebViewPage */ InvocationHandler page);
 
     void onPageDOMContentLoadedEventFired(/* WebViewPage */ InvocationHandler page);
 
-    void onFirstContentfulPaint(/* WebViewPage */ InvocationHandler page);
+    void onFirstContentfulPaint(/* WebViewPage */ InvocationHandler page, long loadTimeUs);
+
+    void onFirstContentfulPaintMillis(
+            /* WebViewPage */ InvocationHandler page, long durationMillis);
+
+    void onLargestContentfulPaintMillis(
+            /* WebViewPage */ InvocationHandler page, long durationMillis);
+
+    void onPerformanceMarkMillis(
+            /* WebViewPage */ InvocationHandler page, String markName, long durationMillis);
 }
