@@ -18,13 +18,14 @@ public interface WebViewNavigationListenerBoundaryInterface
 
     void onNavigationCompleted(/* WebViewNavigation */ InvocationHandler navigation);
 
+    default void onNavigationVisible(/* WebViewNavigation */ InvocationHandler navigation) {}
+
     void onPageDeleted(/* WebViewPage */ InvocationHandler page);
 
     void onPageLoadEventFired(/* WebViewPage */ InvocationHandler page);
 
     void onPageDOMContentLoadedEventFired(/* WebViewPage */ InvocationHandler page);
 
-    // TODO: crbug.com/492948743 Deprecate these features
     void onFirstContentfulPaint(/* WebViewPage */ InvocationHandler page, long loadTimeUs);
 
     void onFirstContentfulPaintMillis(
