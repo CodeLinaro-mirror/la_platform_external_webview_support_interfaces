@@ -15,7 +15,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import java.lang.reflect.InvocationHandler;
 import java.util.Map;
-import java.util.Set;
 
 // Technically this interface is not needed until we add a method to WebSettings with an
 // android.webkit parameter or android.webkit return value. But for forwards compatibility all
@@ -73,10 +72,6 @@ public interface WebSettingsBoundaryInterface {
     @WebauthnSupport
     int getWebauthnSupport();
 
-    void setRequestedWithHeaderOriginAllowList(Set<String> allowedOriginRules);
-
-    Set<String> getRequestedWithHeaderOriginAllowList();
-
     void setEnterpriseAuthenticationAppLinkPolicyEnabled(boolean enabled);
 
     boolean getEnterpriseAuthenticationAppLinkPolicyEnabled();
@@ -85,6 +80,7 @@ public interface WebSettingsBoundaryInterface {
 
     Map<String, Object> getUserAgentMetadataMap();
 
+    @Deprecated
     @Retention(RetentionPolicy.SOURCE)
     @interface AttributionBehavior {
         int DISABLED = 0;
@@ -93,8 +89,10 @@ public interface WebSettingsBoundaryInterface {
         int APP_SOURCE_AND_APP_TRIGGER = 3;
     }
 
+    @Deprecated
     void setAttributionBehavior(@AttributionBehavior int behavior);
 
+    @Deprecated
     @AttributionBehavior
     int getAttributionBehavior();
 
@@ -171,4 +169,21 @@ public interface WebSettingsBoundaryInterface {
     // LINT.ThenChange(/android_webview/java/src/org/chromium/android_webview/AwSettings.java:AwSettingsHyperlinkContextMenuItems)
 
     void setHyperlinkContextMenuItems(@HyperlinkContextMenuItems int hyperlinkMenuItems);
+
+    void setBackForwardCacheSettingsTimeout(long timeout);
+
+    void setBackForwardCacheSettingsMaxPagesInCache(int pagesInCache);
+
+    void setBackForwardCacheSettingsKeepForwardEntries(
+            boolean keepForwardEntries);
+
+    long getBackForwardCacheSettingsTimeout();
+
+    int getBackForwardCacheSettingsMaxPagesInCache();
+
+    boolean getBackForwardCacheSettingsKeepForwardEntries();
+
+    void setDownloadFaviconsEnabled(boolean enabled);
+
+    boolean getDownloadFaviconsEnabled();
 }
