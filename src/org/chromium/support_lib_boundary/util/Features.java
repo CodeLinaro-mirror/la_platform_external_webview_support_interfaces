@@ -492,6 +492,7 @@ public class Features {
     // WebViewCompat.navigate
     public static final String WEBVIEW_NAVIGATE_V1 = "WEBVIEW_NAVIGATE_V1";
 
+    // WebViewCompat.navigate
     // Prefetch queue is drained prior to loading the URL in the WebView Navigate method.
     public static final String WEBVIEW_NAVIGATE_DRAIN_PREFETCH = "WEBVIEW_NAVIGATE_DRAIN_PREFETCH";
 
@@ -514,4 +515,15 @@ public class Features {
 
     // Navigation.getResponseHeaders
     public static final String NAVIGATION_GET_RESPONSE_HEADERS = "NAVIGATION_GET_RESPONSE_HEADERS";
+
+    // WebViewNavigation.getNavigationStartUptimeMillis
+    public static final String NAVIGATION_GET_NAVIGATION_START_UPTIME_MILLIS =
+            "NAVIGATION_GET_NAVIGATION_START_UPTIME_MILLIS";
+
+    // WebViewCompat.createSharedArrayBuffer
+    // WebMessagePayload.getAsSharedArrayBuffer
+    public static final String WEB_MESSAGE_SHARED_ARRAY_BUFFER = "WEB_MESSAGE_SHARED_ARRAY_BUFFER";
+
+    // WebFeature.WEB_SURFACE
+    public static final String WEB_SURFACE = "WEB_SURFACE";
 }
