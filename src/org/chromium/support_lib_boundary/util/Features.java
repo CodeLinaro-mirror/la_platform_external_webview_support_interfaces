@@ -274,6 +274,11 @@ public class Features {
     // WebSettingsCompat.getUserAgentMetadataMap
     public static final String USER_AGENT_METADATA = "USER_AGENT_METADATA";
 
+    // UserAgentMetadata.Builder.setFormFactors
+    // UserAgentMetadata.getFormFactors
+    public static final String USER_AGENT_METADATA_FORM_FACTORS =
+            "USER_AGENT_METADATA_FORM_FACTORS";
+
     // WebSettingsCompat.setAttributionBehavior
     // WebSettingsCompat.getAttributionBehavior
     @Deprecated public static final String ATTRIBUTION_BEHAVIOR = "ATTRIBUTION_BEHAVIOR";
@@ -469,6 +474,7 @@ public class Features {
 
     // Profile.addQuicHints
     public static final String ADD_QUIC_HINTS_V1 = "ADD_QUIC_HINTS_V1";
+    public static final String ADD_QUIC_HINTS_WILDCARDS = "ADD_QUIC_HINTS_WILDCARDS";
 
     // JsReplyProxy.executeJavaScript
     // WebViewCompat.addJavaScriptOnEvent
@@ -514,6 +520,13 @@ public class Features {
             "CROSS_ORIGIN_ISOLATED_ALLOW_LIST";
 
     // Navigation.getResponseHeaders
+    //
+    // WebViewNavigationListener.onNavigationRedirected(WebViewNavigation,
+    // NavigationRedirectParameters)
+    //
+    // NavigationRedirectParameters.getResponseHeaders
+    //
+    // NavigationRedirectParameters.getStatusCode
     public static final String NAVIGATION_GET_RESPONSE_HEADERS = "NAVIGATION_GET_RESPONSE_HEADERS";
 
     // WebViewNavigation.getNavigationStartUptimeMillis
