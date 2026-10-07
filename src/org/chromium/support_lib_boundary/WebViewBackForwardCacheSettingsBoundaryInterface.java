@@ -6,8 +6,11 @@ package org.chromium.support_lib_boundary;
 
 import org.jspecify.annotations.NullMarked;
 
-/** Boundary interface for WebViewPage. */
+/** Boundary interface for WebViewBackForwardCacheSettings. */
 @NullMarked
-public interface WebViewPageBoundaryInterface extends IsomorphicObjectBoundaryInterface {
-    String getUrl();
+public interface WebViewBackForwardCacheSettingsBoundaryInterface
+        extends IsomorphicObjectBoundaryInterface {
+    int getTimeoutInSeconds();
+
+    int getMaxPagesInCache();
 }
