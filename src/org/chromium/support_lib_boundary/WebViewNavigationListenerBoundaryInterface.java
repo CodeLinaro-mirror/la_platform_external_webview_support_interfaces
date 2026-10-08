@@ -16,7 +16,13 @@ public interface WebViewNavigationListenerBoundaryInterface
 
     void onNavigationRedirected(/* WebViewNavigation */ InvocationHandler navigation);
 
+    default void onNavigationRedirected(
+            /* WebViewNavigation */ InvocationHandler navigation,
+            /* NavigationRedirectParameters */ InvocationHandler redirectParameters) {}
+
     void onNavigationCompleted(/* WebViewNavigation */ InvocationHandler navigation);
+
+    default void onNavigationVisible(/* WebViewNavigation */ InvocationHandler navigation) {}
 
     void onPageDeleted(/* WebViewPage */ InvocationHandler page);
 
@@ -25,4 +31,13 @@ public interface WebViewNavigationListenerBoundaryInterface
     void onPageDOMContentLoadedEventFired(/* WebViewPage */ InvocationHandler page);
 
     void onFirstContentfulPaint(/* WebViewPage */ InvocationHandler page, long loadTimeUs);
+
+    void onFirstContentfulPaintMillis(
+            /* WebViewPage */ InvocationHandler page, long durationMillis);
+
+    void onLargestContentfulPaintMillis(
+            /* WebViewPage */ InvocationHandler page, long durationMillis);
+
+    void onPerformanceMarkMillis(
+            /* WebViewPage */ InvocationHandler page, String markName, long durationMillis);
 }
