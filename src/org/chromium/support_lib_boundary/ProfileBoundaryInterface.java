@@ -8,16 +8,20 @@ import android.os.CancellationSignal;
 import android.webkit.CookieManager;
 import android.webkit.GeolocationPermissions;
 import android.webkit.ServiceWorkerController;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebStorage;
 
-import org.jspecify.annotations.NonNull;
 import org.jspecify.annotations.NullMarked;
 import org.jspecify.annotations.Nullable;
 
 import java.lang.reflect.InvocationHandler;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Executor;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 /** Boundary interface for Profile. */
 @NullMarked
@@ -45,10 +49,38 @@ public interface ProfileBoundaryInterface {
             /* SpeculativeLoadingParameters */ InvocationHandler speculativeLoadingParams,
             /* PrefetchOperationCallback */ InvocationHandler callback);
 
+    @Deprecated
     void clearPrefetch(
             String url,
             Executor callbackExecutor,
             /* PrefetchOperationCallback */ InvocationHandler callback);
+
+    void setMaxPrerenders(int maxPrerenders);
+
+    // Kept for compatibility. `int` version is going to be used moving forward.
+    void setMaxPrerenders(@Nullable Integer maxPrerenders);
+
+    void clearMaxPrerenders();
+
+    // Kept for compatibility. `int` version is going to be used moving forward.
+    void setMaxPrefetches(@Nullable Integer maxPrefetches);
+
+    // Kept for compatibility. `int` version is going to be used moving forward.
+    void setPrefetchTtlSeconds(@Nullable Integer prefetchTtlSeconds);
+
+    void setMaxPrefetches(int maxPrefetches);
+
+    void setPrefetchTtlSeconds(int prefetchTtlSeconds);
+
+    void clearMaxPrefetches();
+
+    void clearPrefetchTtl();
+
+    int getMaxPrerenders();
+
+    int getMaxPrefetches();
+
+    int getPrefetchTtlSeconds();
 
     void setSpeculativeLoadingConfig(/* SpeculativeLoadingConfig */ InvocationHandler config);
 
@@ -61,14 +93,13 @@ public interface ProfileBoundaryInterface {
     @Deprecated
     void setOriginMatchedHeader(String headerName, String headerValue, Set<String> originRules);
 
-    void addOriginMatchedHeader(
-            @NonNull String name, @NonNull String value, @NonNull Set<String> rules);
+    void addOriginMatchedHeader(String name, String value, Set<String> rules);
 
     boolean hasOriginMatchedHeader(String headerName);
 
-    @NonNull /* List<OriginMatchedBoundaryInterface> */
-            List<InvocationHandler> getOriginMatchedHeaders(
-                    @Nullable String headerName, @Nullable String headerValue);
+    /* List<OriginMatchedBoundaryInterface> */
+    List<InvocationHandler> getOriginMatchedHeaders(
+            @Nullable String headerName, @Nullable String headerValue);
 
     /**
      * @deprecated Can be removed along with {@link
@@ -77,11 +108,33 @@ public interface ProfileBoundaryInterface {
     @Deprecated
     void clearOriginMatchedHeader(String headerName);
 
-    void clearOriginMatchedHeader(@NonNull String headerName, @Nullable String headerValue);
+    void clearOriginMatchedHeader(String headerName, @Nullable String headerValue);
 
     void clearAllOriginMatchedHeaders();
 
+    Runnable addHeaderInterceptor(
+            Consumer<BiConsumer<@RequestMatcherConfig Integer, Object>> buildRequestMatcherConfig,
+            Function<WebResourceRequest, Map<String, @Nullable String>> headerInterceptor);
+
     void preconnect(String url);
 
+    /**
+     * Asynchronously enqueues a preconnect request for the given URL.
+     *
+     * <p>This method is non-blocking and does not force native Chromium startup. The request is
+     * queued and executed once native initialization completes.
+     */
+    void enqueuePreconnect(String url);
+
     void addQuicHints(Set<String> origins);
+
+    /* HttpCacheBoundaryInterface */ InvocationHandler getHttpCache();
+
+    void setCrossOriginIsolatedAllowList(Set<String> originPatterns);
+
+    Set<String> getCrossOriginIsolatedAllowList();
+
+    void configureIsolatedSites(Set<String> sites);
+
+    boolean canConfigureIsolatedSites();
 }
