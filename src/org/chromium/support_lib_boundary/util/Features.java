@@ -563,4 +563,11 @@ public class Features {
     // WebViewCompat.setGoogleAccountsCallback
     // WebViewCompat.clearGoogleAccountsCallback
     public static final String GOOGLE_ACCOUNTS_CALLBACK = "GOOGLE_ACCOUNTS_CALLBACK_V1";
+
+    // WebSettingsCompat.setWebGraphicsEnabled
+    // WebSettingsCompat.getWebGraphicsEnabled
+    public static final String WEB_GRAPHICS_ENABLED = "WEB_GRAPHICS_ENABLED";
+
+    // WebGPU.getWGPUProcGetProcAddress
+    public static final String WEBGPU = "WEBGPU";
 }
